@@ -1,7 +1,15 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan')
 
 app.use(express.json()); // Middleware to parse JSON requests
+app.use(morgan(
+    'METHOD: :method - URL: :url - STATUS: :status - RESPONSE TIME: :response-time[3] ms - POSTED DATA: :postData'
+    ))
+
+morgan.token('postData', function (req, res, param) {
+    return JSON.stringify(req.body)
+})
 
 let persons = [
     {
