@@ -3,6 +3,7 @@ const app = express();
 const morgan = require('morgan')
 
 app.use(express.json()); // Middleware to parse JSON requests
+app.use(express.static('dist'))
 app.use(morgan(
     'METHOD: :method - URL: :url - STATUS: :status - RESPONSE TIME: :response-time[3] ms - POSTED DATA: :postData'
     ))
