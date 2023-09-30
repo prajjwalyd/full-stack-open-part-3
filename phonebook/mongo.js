@@ -10,7 +10,7 @@ const contactName = process.argv[3]
 const contactNumber = process.argv[4]
 
 
-const url = "url";
+const url = 'insert here';
 
 mongoose.connect(url)
 

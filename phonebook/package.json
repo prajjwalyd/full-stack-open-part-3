@@ -10,10 +10,12 @@
     "build:ui": "rm -rf dist && cd ../frontend && npm run build && cp -r dist ../backend",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
-  "author": "",
+  "proxy": "http://localhost:3001",
+  "author": "prajjwalyd",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongodb": "^6.1.0",
     "mongoose": "^7.5.3",
