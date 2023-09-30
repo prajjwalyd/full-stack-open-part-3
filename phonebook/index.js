@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan')
+const cors = require('cors')
 
 app.use(express.json()); // Middleware to parse JSON requests
 app.use(express.static('dist'))
+app.use(cors())
 app.use(morgan(
     'METHOD: :method - URL: :url - STATUS: :status - RESPONSE TIME: :response-time[3] ms - POSTED DATA: :postData'
     ))
@@ -100,7 +102,12 @@ app.post('/api/persons', (request, response) => {
     response.json(person);
 });
 
-const PORT = 3001;
+// const PORT = 3001;
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });
+
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+    console.log(`Server running on port ${PORT}`)
+})
