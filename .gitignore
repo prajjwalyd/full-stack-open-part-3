@@ -1,2 +1,2 @@
-phonebook/node_modules/
-phonebook/package-lock.json
+node_modules
+package-lock.json
